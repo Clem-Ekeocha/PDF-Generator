@@ -12,4 +12,7 @@ for index, row in df.iterrows():                             # iterate over each
     pdf.cell(w=0, h=12, txt=row["Topic"], align="L", ln=1)   # Assign each row as the text in each page of the pdf.
     pdf.line(10,21, 200,21)                                  # Set the cordinates of the line on the pdf document
 
+    for i in range(row["Pages"]-1):             # This loop adds the requested no. of pages in the Topics.csv file
+        pdf.add_page()
+
 pdf.output("output2.pdf")
